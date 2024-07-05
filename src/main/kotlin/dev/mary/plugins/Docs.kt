@@ -1,8 +1,7 @@
 package dev.mary.plugins
 
 import dev.h4kt.ktorDocs.plugin.KtorDocs
-import io.ktor.server.application.Application
-import io.ktor.server.application.install
+import io.ktor.server.application.*
 
 fun Application.configureDocs() = install(KtorDocs) {
 

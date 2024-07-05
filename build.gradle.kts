@@ -6,12 +6,16 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.ksp)
 
+
+
     id("application")
 
 }
 
 group = "dev.mary"
 version = "1.0.0"
+
+val exposedVersion: String by project
 
 repositories {
     mavenCentral()
@@ -22,9 +26,6 @@ dependencies {
 
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.serialization.hocon)
-
-    detekt(libs.detekt.cli)
-    detekt(libs.detekt.formatting)
 
     implementation(libs.ktor.server.netty)
     implementation(libs.ktor.server.auth)
@@ -46,6 +47,12 @@ dependencies {
     ksp(libs.koin.compiler)
 
     testImplementation("org.jetbrains.kotlin:kotlin-test")
+    implementation("org.jetbrains.exposed:exposed-json:$exposedVersion")
+
+    implementation("io.ktor:ktor-client-core:2.0.0")
+    implementation("io.ktor:ktor-client-cio:2.0.0")
+    implementation("io.ktor:ktor-client-serialization:2.0.0")
+    implementation("org.jetbrains.exposed:exposed-jodatime:0.36.2")
 
 }
 

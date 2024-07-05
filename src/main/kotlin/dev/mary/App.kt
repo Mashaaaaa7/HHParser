@@ -1,16 +1,15 @@
 package dev.mary
 
-import io.ktor.server.application.Application
-import io.ktor.server.netty.EngineMain
-import dev.mary.plugins.configureAuthentication
-import dev.mary.plugins.configureContentNegotiation
-import dev.mary.plugins.configureDatabase
-import dev.mary.plugins.configureDocs
-import dev.mary.plugins.configureRouting
+import dev.mary.plugins.*
+import dev.mary.plugins.koin.configureKoin
+import io.ktor.server.application.*
+import io.ktor.server.netty.*
 
 fun main(args: Array<String>) = EngineMain.main(args)
 
 fun Application.module() {
+
+    configureKoin()
 
     configureDatabase()
 

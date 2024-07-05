@@ -1,9 +1,7 @@
 package dev.mary.plugins
 
-import io.ktor.server.application.Application
-import io.ktor.server.auth.UserIdPrincipal
-import io.ktor.server.auth.authentication
-import io.ktor.server.auth.bearer
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
 
 fun Application.configureAuthentication() = authentication {
 
