@@ -2,7 +2,7 @@ name: parser
 
 services:
 
-  api:
+  backend:
     build: ./backend
     ports:
       - "1337:1337"
@@ -11,11 +11,18 @@ services:
     volumes:
       - ./backend/run:/home/app/run
 
+  frontend:
+    build: ./frontend
+    ports:
+      - "1338:1338"
+    environment:
+      PORT: 1338
+
   psql:
     image: postgres:latest
 
     ports:
-      - 5432:5432
+      - "5432:5432"
 
     environment:
       POSTGRES_PASSWORD: "postgres"
