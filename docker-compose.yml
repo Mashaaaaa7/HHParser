@@ -3,13 +3,13 @@ name: parser
 services:
 
   api:
-    build: .
+    build: ./backend
     ports:
       - "1337:1337"
     depends_on:
       - psql
     volumes:
-      - ./run:/home/app/run
+      - ./backend/run:/home/app/run
 
   psql:
     image: postgres:latest
