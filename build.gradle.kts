@@ -3,12 +3,11 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.serialization)
 
-    alias(libs.plugins.detekt)
     alias(libs.plugins.ksp)
 
-
-
     id("application")
+
+    id("io.ktor.plugin") version "2.3.12"
 
 }
 
@@ -20,6 +19,7 @@ val exposedVersion: String by project
 repositories {
     mavenCentral()
     maven("https://repo.h4kt.dev/releases")
+    maven("https://jitpack.io")
 }
 
 dependencies {
@@ -53,6 +53,7 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:2.0.0")
     implementation("io.ktor:ktor-client-serialization:2.0.0")
     implementation("org.jetbrains.exposed:exposed-jodatime:0.36.2")
+    implementation("com.github.kotlin-telegram-bot.kotlin-telegram-bot:telegram:6.1.0")
 
 }
 
@@ -63,11 +64,6 @@ kotlin {
 ksp {
     arg("KOIN_CONFIG_CHECK", "true")
     arg("KOIN_DEFAULT_MODULE", "false")
-}
-
-detekt {
-    config.setFrom("detekt.yml")
-    buildUponDefaultConfig = false
 }
 
 application {

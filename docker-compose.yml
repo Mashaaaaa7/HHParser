@@ -1,0 +1,21 @@
+name: parser
+
+services:
+
+  api:
+    build: .
+    ports:
+      - "1337:1337"
+    depends_on:
+      - psql
+    volumes:
+      - ./run:/home/app/run
+
+  psql:
+    image: postgres:latest
+
+    ports:
+      - 5432:5432
+
+    environment:
+      POSTGRES_PASSWORD: "postgres"
